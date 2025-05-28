@@ -5,7 +5,7 @@ void main() {
     Center(
       child: Text(
         'Hello, World!!!',
-        
+        textAlign: TextAlign.center,
         textDirection: TextDirection.ltr,
         style: TextStyle(
           fontSize: 24,
