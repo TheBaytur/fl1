@@ -2,17 +2,26 @@ import 'package:flutter/material.dart';
 
 void main() {
   runApp(
-    Center(
-      child: Text(
-        'Hello, World!!!',
-        textAlign: TextAlign.center,
-        textDirection: TextDirection.ltr,
-        style: TextStyle(
-          fontSize: 24,
-          color: Colors.blue,
-          fontWeight: FontWeight.bold,
+    MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        backgroundColor: Colors.orange,
+        appBar: AppBar(
+          title: Text('Flutter App'),
+          centerTitle: true,
+          backgroundColor: const Color.fromARGB(255, 243, 86, 33),
+        ),
+        body: Center(
+          child: Text('This is Flutter 1 application',
+            style: TextStyle(
+              fontSize: 24,
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+            ), 
         ),
       ),
     ),
+    )
   );
+  
 }
