@@ -26,10 +26,13 @@ class MyFirstApp extends StatefulWidget {
     @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(fontFamily: 'AmdCreamScream'),
+      
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         backgroundColor: Colors.indigo,
         appBar: AppBar(title: Text('My First fl App'),
+        centerTitle: true,
         
         ),
         body: Center(
@@ -47,7 +50,7 @@ class MyFirstApp extends StatefulWidget {
                 child: Text('My custom Font',
               style: TextStyle(fontSize: 30,
               color: Colors.red,
-              fontFamily: 'AmdCreamScream',
+              //fontFamily: 'AmdCreamScream',
               ),
               ),
               ),
