@@ -30,38 +30,21 @@ class MyFirstApp extends StatefulWidget {
       home: Scaffold(
         backgroundColor: Colors.indigo,
         appBar: AppBar(title: Text('My First fl App'),
+        
         ),
         body: Center(
-          child: Container(
-            padding: EdgeInsets.all(20),
-            child: _isLoading ?
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-              LinearProgressIndicator(value: 23),
-              Text(
-                '${(_progressValue * 100).round()}%',
-                style: TextStyle(
-                color: Colors.white,
-                fontSize: 20,
+          child: Stack(
+            children: <Widget>[
+              Image.asset(
+                'assets/images/fridge_logo.png',
+                fit: BoxFit.cover,
+                width: double.infinity,
+                height: double.infinity,
               ),
-              ),
-              Text('Press any button',style: TextStyle(
-                color: Colors.white,
-                fontSize: 20,
-              ),
-              ),
-            
+              
             ],
-            )
-            : Text(
-              'Hello, Flutter!',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 20,
-              ),
-            ),
           ),
+          
         ),
        floatingActionButton: FloatingActionButton(
           onPressed: () {
