@@ -35,28 +35,29 @@ class MyFirstApp extends StatefulWidget {
         centerTitle: true,
         
         ),
-        body: Center(
-          child: Stack(
-            children: <Widget>[
-              Image.asset(
-                'assets/images/fridge_logo.png',
-                fit: BoxFit.cover,
-                width: double.infinity,
-                height: double.infinity,
-              ),
-              Positioned(
-                top: 16,
-                left: 115,
-                child: Text('My custom Font',
-              style: TextStyle(fontSize: 30,
-              color: Colors.red,
-              //fontFamily: 'AmdCreamScream',
-              ),
-              ),
-              ),
-            ],
+        body: Container(
+          decoration:  BoxDecoration(
+            color: Colors.amber,
+            border: Border.all(),
           ),
-          
+          child: Center(
+            child: Stack(
+              children: <Widget>[
+                
+                Positioned(
+                  top: 16,
+                  left: 115,
+                  child: Text('My custom Font',
+                style: TextStyle(fontSize: 30,
+                color: Colors.red,
+                //fontFamily: 'AmdCreamScream',
+                ),
+                ),
+                ),
+              ],
+            ),
+            
+          ),
         ),
        floatingActionButton: FloatingActionButton(
           onPressed: () {
