@@ -1,9 +1,29 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyFirstApp());
 
-class MyFirstApp extends StatelessWidget {
+class MyFirstApp extends StatefulWidget {
   @override
+  State<StatefulWidget> createState() {
+    // TODO: implement createState
+    return _MyFirstAppState();
+  }
+}
+
+  class _MyFirstAppState extends State<MyFirstApp> {
+    late bool _isLoading;
+    late double _progressValue;
+
+    @override
+  void initState() {
+    _isLoading = false;
+    _progressValue = 0.0;
+    super.initState();
+  }
+    
+    @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
@@ -14,11 +34,14 @@ class MyFirstApp extends StatelessWidget {
         body: Center(
           child: Container(
             padding: EdgeInsets.all(20),
-            child: Column(
+            child: _isLoading ?
+            Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
               LinearProgressIndicator(value: 23),
-              Text('Loading...',style: TextStyle(
+              Text(
+                '${(_progressValue * 100).round()}%',
+                style: TextStyle(
                 color: Colors.white,
                 fontSize: 20,
               ),
@@ -29,15 +52,45 @@ class MyFirstApp extends StatelessWidget {
               ),
               ),
             
-            ]),
+            ],
+            )
+            : Text(
+              'Hello, Flutter!',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 20,
+              ),
+            ),
           ),
         ),
        floatingActionButton: FloatingActionButton(
-          onPressed: null,
+          onPressed: () {
+            setState((){
+              _isLoading = !_isLoading;
+              _updateProgress();
+            });
+          },
           child: Icon(Icons.cloud_download),
       ),
       ),
     );
+  }
+
+  void _updateProgress() {
+    const oneSec = const Duration(  seconds: 1);
+    Timer.periodic(oneSec, (Timer t) {
+      setState(() {
+        _progressValue += 0.2;
+
+        if (_progressValue.toStringAsFixed(1) == '1.0') {
+          _isLoading = false;
+          _progressValue = 0.0;
+          t.cancel();
+          _progressValue = 0.0;
+          return;
+        }
+      });
+    });
   }
 }
 
