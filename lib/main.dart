@@ -40,24 +40,9 @@ class MyFirstApp extends StatefulWidget {
             color: Colors.amber,
             border: Border.all(),
           ),
-          child: Center(
-            child: Stack(
-              children: <Widget>[
-                
-                Positioned(
-                  top: 16,
-                  left: 115,
-                  child: Text('My custom Font',
-                style: TextStyle(fontSize: 30,
-                color: Colors.red,
-                //fontFamily: 'AmdCreamScream',
-                ),
-                ),
-                ),
-              ],
-            ),
-            
-          ),
+          
+          
+          
         ),
        floatingActionButton: FloatingActionButton(
           onPressed: () {
