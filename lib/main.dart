@@ -9,7 +9,7 @@ class MyFirstApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         backgroundColor: Colors.indigo,
-        appBar: AppBar(title: Text('My First App'),
+        appBar: AppBar(title: Text('My First fl App'),
         ),
         body: Center(
           child: Container(
@@ -40,3 +40,5 @@ class MyFirstApp extends StatelessWidget {
     );
   }
 }
+
+// My main app is a simple Flutter application that displays a loading indicator and some text.
