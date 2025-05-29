@@ -41,7 +41,16 @@ class MyFirstApp extends StatefulWidget {
                 width: double.infinity,
                 height: double.infinity,
               ),
-              
+              Positioned(
+                top: 16,
+                left: 115,
+                child: Text('My custom Font',
+              style: TextStyle(fontSize: 30,
+              color: Colors.red,
+              fontFamily: 'AmdCreamScream',
+              ),
+              ),
+              ),
             ],
           ),
           
