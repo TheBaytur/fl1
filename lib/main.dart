@@ -35,11 +35,23 @@ class MyFirstApp extends StatefulWidget {
         centerTitle: true,
         
         ),
-        body: Container(
-          decoration:  BoxDecoration(
-            color: Colors.amber,
-            border: Border.all(),
-          ),
+        body: Row(
+          children: <Widget>[
+            Expanded(
+              flex: 5,
+              child: Image.network('https://cdn.mos.cms.futurecdn.net/kKBfGUhLR9rQbFG76jmRnU-1200-80.jpg.webp')),
+            Expanded(
+              flex: 3,
+              child: Container(
+                padding: EdgeInsets.all(30.0),
+                color: Colors.red,
+                child: Text('1'),
+
+              ),
+            )
+          ],
+          
+          
           
           
           
