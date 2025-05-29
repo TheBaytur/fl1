@@ -12,65 +12,53 @@ class MyFirstApp extends StatefulWidget {
   }
 }
 
-  class _MyFirstAppState extends State<MyFirstApp> {
-    late bool _isLoading;
-    late double _progressValue;
+class _MyFirstAppState extends State<MyFirstApp> {
+  late bool _isLoading;
+  late double _progressValue;
 
-    @override
+  @override
   void initState() {
     _isLoading = false;
     _progressValue = 0.0;
     super.initState();
   }
-    
-    @override
+
+  @override
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(fontFamily: 'AmdCreamScream'),
-      
+
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         backgroundColor: Colors.indigo,
-        appBar: AppBar(title: Text('My First fl App'),
-        centerTitle: true,
-        
-        ),
-        body: Row(
-          children: <Widget>[
-            Expanded(
-              flex: 5,
-              child: Image.network('https://cdn.mos.cms.futurecdn.net/kKBfGUhLR9rQbFG76jmRnU-1200-80.jpg.webp')),
-            Expanded(
-              flex: 3,
-              child: Container(
-                padding: EdgeInsets.all(30.0),
-                color: Colors.red,
-                child: Text('1'),
+        appBar: AppBar(title: Text('My First fl App'), centerTitle: true),
 
-              ),
-            )
+        body: Stack(
+          alignment: Alignment.center,
+          children: <Widget>[
+            Icon(Icons.airplay, color: Colors.red, size: 200),
+            Positioned(
+              top: 60,
+              left: 45,
+              child: Text('TV')),
           ],
-          
-          
-          
-          
-          
         ),
-       floatingActionButton: FloatingActionButton(
+
+        floatingActionButton: FloatingActionButton(
           onPressed: () {
-            setState((){
+            setState(() {
               _isLoading = !_isLoading;
               _updateProgress();
             });
           },
           child: Icon(Icons.cloud_download),
-      ),
+        ),
       ),
     );
   }
 
   void _updateProgress() {
-    const oneSec = const Duration(  seconds: 1);
+    const oneSec = const Duration(seconds: 1);
     Timer.periodic(oneSec, (Timer t) {
       setState(() {
         _progressValue += 0.2;
